@@ -24,8 +24,8 @@ import java.util.ArrayList
  * Created by webonise on 1/16/18.
  */
 class SearchPlacesFragment : Fragment() {
-    val PLACES_AUTOCOMPLETE_REQUEST_CODE: Int = 1
-    val PERMISSION_REQUEST = 100
+    private val PLACES_AUTOCOMPLETE_REQUEST_CODE: Int = 1
+    private val PERMISSION_REQUEST = 100
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_search_places, container, false)
@@ -65,7 +65,7 @@ class SearchPlacesFragment : Fragment() {
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         var result = true
-        if (grantResults.size > 0) {
+        if (grantResults.isNotEmpty()) {
             for (permission in grantResults) {
                 if (permission != PackageManager.PERMISSION_GRANTED) {
                     result = false
@@ -73,7 +73,7 @@ class SearchPlacesFragment : Fragment() {
                 }
             }
         }
-        if (grantResults.size > 0 && result) {
+        if (grantResults.isNotEmpty() && result) {
             startPlaceSelector()
         } else {
             var permissionResult = true
@@ -106,19 +106,28 @@ class SearchPlacesFragment : Fragment() {
 
     private fun handleActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == PLACES_AUTOCOMPLETE_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                val place = PlaceAutocomplete.getPlace(activity, data)
-                val intent = Intent(view?.context, PlaceDetailsActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                val latLng = place.latLng
-                intent.putExtra("latLng", latLng.latitude.toString() + "," + latLng.longitude)
-                view?.context?.startActivity(intent)
+            when (resultCode) {
+                Activity.RESULT_OK -> {
+                    val place = PlaceAutocomplete.getPlace(activity, data)
+                    val intent = Intent(view?.context, PlaceDetailsActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    val latLng = place.latLng
+                    intent.putExtra("latLng", latLng.latitude.toString() + "," + latLng.longitude)
+                    view?.context?.startActivity(intent)
+                } PlaceAutocomplete.RESULT_ERROR -> {
+                    val status = PlaceAutocomplete.getStatus(activity, data)
+                } Activity.RESULT_CANCELED -> {
+                    // The user canceled the operation.
+                }
+            }
+            /*if (resultCode == Activity.RESULT_OK) {
+
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 val status = PlaceAutocomplete.getStatus(activity, data)
                 // TODO: Handle the error.
             } else if (resultCode == Activity.RESULT_CANCELED) {
                 // The user canceled the operation.
-            }
+            }*/
         }
     }
 
