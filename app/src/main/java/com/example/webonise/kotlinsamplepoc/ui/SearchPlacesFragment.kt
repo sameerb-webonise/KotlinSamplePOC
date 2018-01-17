@@ -4,7 +4,6 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Location
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -20,7 +19,7 @@ import android.widget.Toast
 import com.example.webonise.kotlinsamplepoc.R
 import com.google.android.gms.location.places.ui.PlaceAutocomplete
 import kotlinx.android.synthetic.main.fragment_search_places.*
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by webonise on 1/16/18.

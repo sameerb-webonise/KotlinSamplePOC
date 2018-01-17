@@ -1,15 +1,9 @@
 package com.example.webonise.kotlinsamplepoc.presenter
 
-import android.app.Activity
-import android.graphics.Bitmap
 import android.location.Location
 import android.os.Bundle
-import android.os.Environment
 import android.text.TextUtils
 import android.util.Log
-import android.widget.Toast
-import com.bumptech.glide.Glide
-import com.example.webonise.kotlinsamplepoc.R
 import com.example.webonise.kotlinsamplepoc.adapter.PhotoViewAdapter
 import com.example.webonise.kotlinsamplepoc.interfaces.IGetPhotosApi
 import com.example.webonise.kotlinsamplepoc.interfaces.IPlaceDetails
@@ -21,8 +15,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.io.File
-import java.io.FileOutputStream
 import java.util.*
 import java.util.concurrent.Executors
 

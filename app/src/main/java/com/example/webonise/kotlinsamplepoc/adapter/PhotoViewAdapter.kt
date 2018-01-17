@@ -7,12 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.webonise.kotlinsamplepoc.R
-import com.example.webonise.kotlinsamplepoc.R.id.ivPhoto
 import com.example.webonise.kotlinsamplepoc.presenter.PlaceDetailsPresenter
 import com.example.webonise.kotlinsamplepoc.ui.PlaceDetailsActivity
-import java.util.ArrayList
-import kotlinx.android.synthetic.main.photo_list_item.*
 import kotlinx.android.synthetic.main.photo_list_item.view.*
+import java.util.*
 
 /**
  * Created by webonise on 17/1/18.

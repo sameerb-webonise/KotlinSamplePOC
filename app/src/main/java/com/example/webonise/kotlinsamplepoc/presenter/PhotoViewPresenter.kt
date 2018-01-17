@@ -1,14 +1,10 @@
 package com.example.webonise.kotlinsamplepoc.presenter
 
-import android.app.Activity
 import android.graphics.Bitmap
 import android.os.Environment
-import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.webonise.kotlinsamplepoc.R
 import com.example.webonise.kotlinsamplepoc.interfaces.IPhotoView
 import com.example.webonise.kotlinsamplepoc.ui.PhotoViewActivity
-import com.example.webonise.kotlinsamplepoc.ui.PlaceDetailsActivity
 import java.io.File
 import java.io.FileOutputStream
 

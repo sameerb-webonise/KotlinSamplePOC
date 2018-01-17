@@ -1,17 +1,12 @@
 package com.example.webonise.kotlinsamplepoc.ui
 
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.os.Environment
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.webonise.kotlinsamplepoc.R
 import com.example.webonise.kotlinsamplepoc.presenter.PhotoViewPresenter
-import com.example.webonise.kotlinsamplepoc.presenter.PlaceDetailsPresenter
 import kotlinx.android.synthetic.main.activity_photo_view.*
-import java.io.File
-import java.io.FileOutputStream
 
 /**
  * Created by webonise on 17/1/18.
