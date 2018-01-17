@@ -18,17 +18,21 @@
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBv4xXX_J_xMBykdkqYsujToBPFzltc1jM"/>
 
-        <activity android:name=".UI.SplashActivity">
+        <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UI.HomeActivity">
+        <activity android:name=".ui.HomeActivity">
 
         </activity>
-        <activity android:name=".UI.PlaceDetailsActivity">
+        <activity android:name=".ui.PlaceDetailsActivity">
+
+        </activity>
+
+        <activity android:name=".ui.PhotoViewActivity">
 
         </activity>
     </application>

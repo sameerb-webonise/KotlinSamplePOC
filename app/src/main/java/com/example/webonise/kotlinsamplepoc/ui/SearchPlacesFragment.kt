@@ -1,9 +1,10 @@
-package com.example.webonise.kotlinsamplepoc.UI
+package com.example.webonise.kotlinsamplepoc.ui
 
 import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -110,9 +111,13 @@ class SearchPlacesFragment : Fragment() {
                 Activity.RESULT_OK -> {
                     val place = PlaceAutocomplete.getPlace(activity, data)
                     val intent = Intent(view?.context, PlaceDetailsActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     val latLng = place.latLng
-                    intent.putExtra("latLng", latLng.latitude.toString() + "," + latLng.longitude)
+
+                    //val location: Location = Location(latLng.latitude.toString() + "," + latLng.longitude)
+
+                    //intent.putExtra("lat", latLng.latitude.toString() + "," + latLng.longitude)
+                    intent.putExtra("latLng",latLng)
                     view?.context?.startActivity(intent)
                 } PlaceAutocomplete.RESULT_ERROR -> {
                     val status = PlaceAutocomplete.getStatus(activity, data)

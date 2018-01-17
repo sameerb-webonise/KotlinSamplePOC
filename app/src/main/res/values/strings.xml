@@ -3,4 +3,5 @@
     <string name="msg_permission_denied">Please grant all the required permissions</string>
     <string name="action_enable">Enable</string>
     <string name="enable_permission">Please enable requred permissions from application settings</string>
+    <string name="photo_downloaded">Please wait, Your photo will be downloaded soon</string>
 </resources>

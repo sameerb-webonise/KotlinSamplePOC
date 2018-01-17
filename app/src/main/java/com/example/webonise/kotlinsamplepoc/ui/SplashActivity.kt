@@ -1,4 +1,4 @@
-package com.example.webonise.kotlinsamplepoc.UI
+package com.example.webonise.kotlinsamplepoc.ui
 
 import android.content.Intent
 import android.os.Bundle
