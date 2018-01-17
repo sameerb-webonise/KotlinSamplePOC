@@ -19,6 +19,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.webonise.kotlinsamplepoc.R
 import com.google.android.gms.location.places.ui.PlaceAutocomplete
+import kotlinx.android.synthetic.main.fragment_search_places.*
 import java.util.ArrayList
 
 /**
@@ -34,7 +35,8 @@ class SearchPlacesFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        checkPermission()
+        button.setOnClickListener{checkPermission()}
+        //checkPermission()
     }
 
     private fun checkPermission() {
@@ -146,6 +148,7 @@ class SearchPlacesFragment : Fragment() {
         appIntent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
         activity.startActivity(appIntent)
     }
+
 
 
 }

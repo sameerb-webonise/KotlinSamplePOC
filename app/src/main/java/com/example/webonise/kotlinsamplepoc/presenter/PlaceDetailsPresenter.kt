@@ -5,7 +5,6 @@ import android.graphics.Bitmap
 import android.location.Location
 import android.os.Bundle
 import android.os.Environment
-import android.support.v4.app.Fragment
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
@@ -16,7 +15,6 @@ import com.example.webonise.kotlinsamplepoc.interfaces.IGetPhotosApi
 import com.example.webonise.kotlinsamplepoc.interfaces.IPlaceDetails
 import com.example.webonise.kotlinsamplepoc.response.GetPlacesResponse
 import com.example.webonise.kotlinsamplepoc.ui.PlaceDetailsActivity
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,8 +23,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.io.FileOutputStream
-import java.io.IOException
-import java.util.ArrayList
+import java.util.*
 import java.util.concurrent.Executors
 
 /**
@@ -69,19 +66,19 @@ class PlaceDetailsPresenter : IPlaceDetails {
                 .client(okHttp3ClientBuilder.build())
                 .build()
 
-        val getPhotosApi = retrofit.create<IGetPhotosApi>(IGetPhotosApi::class.java!!)
+        val getPhotosApi = retrofit.create<IGetPhotosApi>(IGetPhotosApi::class.java)
         val call = getPhotosApi.getPlaceDetails(mLatLng, 500, "AIzaSyBv4xXX_J_xMBykdkqYsujToBPFzltc1jM")
         call.enqueue(object : Callback<GetPlacesResponse> {
             override fun onResponse(call: Call<GetPlacesResponse>, response: Response<GetPlacesResponse>?) {
                 if (response != null) {
                     Log.d("PlaceDetailsPresenter", response.body().toString())
                     val results = response.body().results
-                    if (results != null) {
+                    //if (results != null) {
                         mPhotoUris.clear()
-                        for (result in results!!) {
+                        for (result in results) {
                             val photos = result.photos
                             if (photos != null) {
-                                for (photo in photos!!) {
+                                for (photo in photos) {
                                     val photoReference = photo.photo_reference
                                     if (!TextUtils.isEmpty(photoReference)) {
                                         addItemToPhotoList("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" + photoReference +
@@ -90,7 +87,7 @@ class PlaceDetailsPresenter : IPlaceDetails {
                                 }
                             }
                         }
-                    }
+                    //}
                 }
             }
 
@@ -108,7 +105,7 @@ class PlaceDetailsPresenter : IPlaceDetails {
 
     fun saveImageToFile(photoUri: String) {
         Thread(Runnable {
-            var theBitmap: Bitmap? = null
+            var theBitmap: Bitmap
             try {
                 theBitmap = Glide.with(mView).load(photoUri).asBitmap().into(-1, -1).get()
                 val extStorageDirectory = Environment.getExternalStorageDirectory().toString()
@@ -119,7 +116,7 @@ class PlaceDetailsPresenter : IPlaceDetails {
                     file = File(extStorageDirectory, filename)
                 }
                 val outStream = FileOutputStream(file)
-                theBitmap!!.compress(Bitmap.CompressFormat.PNG, 100, outStream)
+                theBitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream)
                 outStream.flush()
                 outStream.close()
             } catch (e: Exception) {

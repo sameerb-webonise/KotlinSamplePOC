@@ -12,8 +12,10 @@ class HomeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        addFragmentSupport(SearchPlacesFragment(), false, R.id.container, SearchPlacesFragment::class.java.simpleName, false)
+        addFragmentSupport(SearchPlacesFragment(), true, R.id.container, SearchPlacesFragment::class.java.simpleName, false)
+
     }
+
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         val visibleFragment = getVisibleFragment()
@@ -21,4 +23,5 @@ class HomeActivity : BaseActivity() {
             visibleFragment.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
+
 }
