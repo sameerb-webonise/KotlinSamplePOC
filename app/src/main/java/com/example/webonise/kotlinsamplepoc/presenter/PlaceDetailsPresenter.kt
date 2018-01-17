@@ -31,7 +31,7 @@ import java.util.concurrent.Executors
  */
 class PlaceDetailsPresenter : IPlaceDetails {
     private val BASE_URL = "https://maps.googleapis.com"
-    private var mView: Activity? = null
+    private var mView: PlaceDetailsActivity? = null
     private var mLatLng: String? = null
     private var mAdaptor: PhotoViewAdapter? = null
     private var mPhotoUris: ArrayList<String> = ArrayList()
@@ -103,33 +103,10 @@ class PlaceDetailsPresenter : IPlaceDetails {
         mView!!.runOnUiThread(Runnable { mAdaptor!!.notifyDataSetChanged() })
     }
 
-    fun saveImageToFile(photoUri: String) {
-        Thread(Runnable {
-            var theBitmap: Bitmap
-            try {
-                theBitmap = Glide.with(mView).load(photoUri).asBitmap().into(-1, -1).get()
-                val extStorageDirectory = Environment.getExternalStorageDirectory().toString()
-                val filename = System.currentTimeMillis().toString() + ".png"
-                var file = File(extStorageDirectory, filename)
-                if (file.exists()) {
-                    file.delete()
-                    file = File(extStorageDirectory, filename)
-                }
-                val outStream = FileOutputStream(file)
-                theBitmap.compress(Bitmap.CompressFormat.PNG, 100, outStream)
-                outStream.flush()
-                outStream.close()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }).start()
-        Toast.makeText(mView, mView?.getString(R.string.photo_downloaded), Toast.LENGTH_SHORT).show()
-    }
-
     override fun handleItemClick(position: Int) {
         //saveImageToFile(mPhotoUris.get(position))
 
-        (mView as PlaceDetailsActivity).goToNextActivity(mPhotoUris.get(position))
+        mView?.goToNextActivity(mPhotoUris.get(position))
     }
 
     override fun onLocationChanged(p0: Location?) {
