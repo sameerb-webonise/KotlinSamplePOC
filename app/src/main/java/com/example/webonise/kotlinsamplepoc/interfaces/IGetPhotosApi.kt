@@ -10,7 +10,7 @@ import retrofit2.http.Query
  */
 interface IGetPhotosApi {
     @GET("/maps/api/place/nearbysearch/json")
-    abstract fun getPlaceDetails(@Query("location") location: String?,
+    fun getPlaceDetails(@Query("location") location: String?,
                                  @Query("radius") radius: Int,
                                  @Query("key") key: String): Call<GetPlacesResponse>
 }

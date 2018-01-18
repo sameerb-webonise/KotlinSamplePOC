@@ -20,7 +20,7 @@ class PhotoViewPresenter: IPhotoView{
 
     override fun saveImageToFile(photoUri: String) {
         Thread(Runnable {
-            var theBitmap: Bitmap? = null
+            var theBitmap: Bitmap?
             try {
                 theBitmap = Glide.with(mView).load(photoUri).asBitmap().into(-1, -1).get()
                 val extStorageDirectory = Environment.getExternalStorageDirectory().toString()

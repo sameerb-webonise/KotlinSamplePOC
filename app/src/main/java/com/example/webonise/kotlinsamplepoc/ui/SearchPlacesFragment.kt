@@ -17,7 +17,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.webonise.kotlinsamplepoc.R
+import com.example.webonise.kotlinsamplepoc.models.RecentPlaces
 import com.google.android.gms.location.places.ui.PlaceAutocomplete
+import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_search_places.*
 import java.util.*
 
@@ -35,7 +37,13 @@ class SearchPlacesFragment : Fragment() {
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button.setOnClickListener{checkPermission()}
+        recentPlaces.setOnClickListener{openRecentPlacesScreen()}
         //checkPermission()
+    }
+
+    private fun openRecentPlacesScreen() {
+        var intent = Intent(activity, RecentSearchListActivity::class.java)
+        startActivity(intent)
     }
 
     private fun checkPermission() {
@@ -119,9 +127,10 @@ class SearchPlacesFragment : Fragment() {
 
                     //intent.putExtra("lat", latLng.latitude.toString() + "," + latLng.longitude)
                     intent.putExtra("latLng",latLng)
+                    addPlaceDetailsToDB(place.name.toString(), latLng.latitude.toString() + "," + latLng.longitude)
                     view?.context?.startActivity(intent)
                 } PlaceAutocomplete.RESULT_ERROR -> {
-                    val status = PlaceAutocomplete.getStatus(activity, data)
+                    //val status = PlaceAutocomplete.getStatus(activity, data)
                 } Activity.RESULT_CANCELED -> {
                     // The user canceled the operation.
                 }
@@ -135,6 +144,18 @@ class SearchPlacesFragment : Fragment() {
                 // The user canceled the operation.
             }*/
         }
+    }
+
+    private fun addPlaceDetailsToDB(name: String, latLng: String) {
+        val realm = Realm.getDefaultInstance()
+        realm.beginTransaction()
+        val realmRecentPlaces = realm.createObject(RecentPlaces::class.java)
+        if (realmRecentPlaces != null) {
+            realmRecentPlaces.name = name
+            realmRecentPlaces.latlng = latLng
+            realm.commitTransaction()
+        }
+        realm.close()
     }
 
     private fun launchApplicationSetting() {
