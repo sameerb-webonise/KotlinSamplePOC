@@ -8,9 +8,6 @@ import com.example.webonise.kotlinsamplepoc.ui.PhotoViewActivity
 import java.io.File
 import java.io.FileOutputStream
 
-/**
- * Created by webonise on 17/1/18.
- */
 class PhotoViewPresenter: IPhotoView{
     private var mView: PhotoViewActivity? = null
 

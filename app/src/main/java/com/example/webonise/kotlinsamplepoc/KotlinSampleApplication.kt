@@ -5,9 +5,6 @@ import android.content.Context
 import io.realm.Realm
 import io.realm.RealmConfiguration
 
-/**
- * Created by webonise on 1/18/18.
- */
 class KotlinSampleApplication: Application() {
 
     init {

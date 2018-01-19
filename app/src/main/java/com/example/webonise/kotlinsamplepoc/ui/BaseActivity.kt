@@ -3,9 +3,6 @@ package com.example.webonise.kotlinsamplepoc.ui
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 
-/**
- * Created by webonise on 1/16/18.
- */
 open class BaseActivity : AppCompatActivity() {
 
     fun addFragmentSupport(fragment: Fragment, addToBackStack: Boolean, containerId: Int, tag: String, showTransition: Boolean) {

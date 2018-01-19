@@ -15,9 +15,6 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.activity_place_details.*
 
-/**
- * Created by webonise on 1/16/18.
- */
 class PlaceDetailsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener {
 
 

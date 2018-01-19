@@ -9,9 +9,6 @@ import com.example.webonise.kotlinsamplepoc.presenter.RecentSearchListPresenter
 import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_recent_place_list.*
 
-/**
- * Created by webonise on 1/18/18.
- */
 class RecentSearchListActivity : BaseActivity() {
     var presenter: RecentSearchListPresenter? = null
 

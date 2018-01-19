@@ -7,9 +7,6 @@ import com.example.webonise.kotlinsamplepoc.models.RecentPlaces
 import com.example.webonise.kotlinsamplepoc.ui.RecentSearchListActivity
 import io.realm.Realm
 
-/**
- * Created by webonise on 1/18/18.
- */
 class RecentSearchListPresenter: IRecentSearchList {
 
     private var mView: RecentSearchListActivity? = null

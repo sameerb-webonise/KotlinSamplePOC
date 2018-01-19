@@ -18,9 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import java.util.concurrent.Executors
 
-/**
- * Created by webonise on 17/1/18.
- */
 class PlaceDetailsPresenter : IPlaceDetails {
     private val BASE_URL = "https://maps.googleapis.com"
     private var mView: PlaceDetailsActivity? = null

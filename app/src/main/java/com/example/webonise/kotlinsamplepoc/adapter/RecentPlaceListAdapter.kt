@@ -12,9 +12,6 @@ import com.example.webonise.kotlinsamplepoc.ui.RecentSearchListActivity
 import kotlinx.android.synthetic.main.recent_place_list_item.view.*
 import java.util.ArrayList
 
-/**
- * Created by webonise on 1/18/18.
- */
 class RecentPlaceListAdapter(): RecyclerView.Adapter<RecentPlaceListAdapter.RecentPlaceListHolder>()  {
     private lateinit var mContext: RecentSearchListActivity
     private lateinit var mPresenter: RecentSearchListPresenter

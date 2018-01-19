@@ -3,9 +3,6 @@ package com.example.webonise.kotlinsamplepoc.interfaces
 import com.example.webonise.kotlinsamplepoc.models.RecentPlaceListModel
 import com.example.webonise.kotlinsamplepoc.ui.RecentSearchListActivity
 
-/**
- * Created by webonise on 1/18/18.
- */
 interface IRecentSearchList {
     fun setView(mActivity: RecentSearchListActivity)
 

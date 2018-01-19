@@ -11,9 +11,6 @@ import com.example.webonise.kotlinsamplepoc.presenter.PhotoViewPresenter
 import com.example.webonise.kotlinsamplepoc.utils.NotificationController
 import kotlinx.android.synthetic.main.activity_photo_view.*
 
-/**
- * Created by webonise on 17/1/18.
- */
 class PhotoViewActivity : AppCompatActivity() {
     private var photoUrl:String = ""
     private var mPresenter: PhotoViewPresenter? = null

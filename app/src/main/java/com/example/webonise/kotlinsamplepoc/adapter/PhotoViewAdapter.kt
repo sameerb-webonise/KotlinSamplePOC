@@ -12,9 +12,6 @@ import com.example.webonise.kotlinsamplepoc.ui.PlaceDetailsActivity
 import kotlinx.android.synthetic.main.photo_list_item.view.*
 import java.util.*
 
-/**
- * Created by webonise on 17/1/18.
- */
 class PhotoViewAdapter(): RecyclerView.Adapter<PhotoViewAdapter.PhotoListHolder>() {
     private lateinit var mContext: PlaceDetailsActivity
     private lateinit var mPresenter: PlaceDetailsPresenter

@@ -7,9 +7,6 @@ import android.support.v4.app.NotificationManagerCompat
 import com.example.webonise.kotlinsamplepoc.ui.BaseActivity
 import java.util.*
 
-/**
- * Created by webonise on 1/18/18.
- */
 class NotificationUtil {
     private val GROUP_KEY_BUNDLED = "group_key_bundled"
 

@@ -23,9 +23,6 @@ import io.realm.Realm
 import kotlinx.android.synthetic.main.fragment_search_places.*
 import java.util.*
 
-/**
- * Created by webonise on 1/16/18.
- */
 class SearchPlacesFragment : Fragment() {
     private val PLACES_AUTOCOMPLETE_REQUEST_CODE: Int = 1
     private val PERMISSION_REQUEST = 100

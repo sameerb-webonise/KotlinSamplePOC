@@ -3,9 +3,6 @@ package com.example.webonise.kotlinsamplepoc.ui
 import android.os.Bundle
 import com.example.webonise.kotlinsamplepoc.R
 
-/**
- * Created by webonise on 1/16/18.
- */
 class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

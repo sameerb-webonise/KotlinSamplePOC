@@ -1,8 +1,5 @@
 package com.example.webonise.kotlinsamplepoc.response
 
-/**
- * Created by webonise on 17/1/18.
- */
  data class GetPlacesResponse(val htmlAttributions:List<Any>,val results:List<Result>, val status:String) {
 
     /**
