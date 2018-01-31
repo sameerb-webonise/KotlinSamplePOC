@@ -39,11 +39,7 @@ class PhotoViewAdapter(): RecyclerView.Adapter<PhotoViewAdapter.PhotoListHolder>
     }
 
     class PhotoListHolder(view: View) : RecyclerView.ViewHolder(view) {
-        internal val imageView: ImageView
-
-        init {
-            imageView = view.ivPhoto as ImageView
-        }
+        internal val imageView: ImageView = view.ivPhoto as ImageView
 
     }
 }
